@@ -8,7 +8,7 @@ RUN apt-get update
 RUN apt-get install -y vim
 RUN useradd -d /home/term -m -s /bin/bash term
 RUN echo 'term:term' | chpasswd
-RUN echo "term ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN chmod -R 755 /app/public
 
 EXPOSE 3000
 
