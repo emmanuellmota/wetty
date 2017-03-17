@@ -6,8 +6,9 @@ WORKDIR /app
 RUN npm install
 RUN apt-get update
 RUN apt-get install -y vim
-RUN useradd -ou 0 -g 0 -d /home/term -m -s /bin/bash term
+RUN useradd -d /home/term -m -s /bin/bash term
 RUN echo 'term:term' | chpasswd
+RUN echo "term ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 EXPOSE 3000
 
